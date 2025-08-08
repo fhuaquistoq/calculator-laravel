@@ -16,7 +16,8 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "illuminate/support": "^12.21"
+        "illuminate/support": "^12.21",
+        "illuminate/console": "^12.21"
     },
     "extra": {
         "laravel": {

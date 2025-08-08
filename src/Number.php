@@ -3,6 +3,7 @@
 namespace Fhuaquistoq\CalculatorLaravel;
 
 use Fhuaquistoq\CalculatorLaravel\Exceptions\DivisionByZeroException;
+use \Fhuaquistoq\CalculatorLaravel\Exceptions\NoNumericException;
 
 class Number
 {
@@ -10,6 +11,9 @@ class Number
 
   public function __construct($value)
   {
+    if (!is_numeric($value)) {
+      throw new NoNumericException();
+    }
     $this->value = $value;
   }
 
