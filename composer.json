@@ -1,0 +1,31 @@
+{
+    "name": "fhuaquistoq/calculator-laravel",
+    "description": "A simple library designed for Laravel to perform basic mathematical operations.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Fhuaquistoq\\CalculatorLaravel\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "fhuaquistoq",
+            "email": "fhuaquistoq@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "illuminate/support": "^12.21"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Fhuaquistoq\\CalculatorLaravel\\CalculatorServiceProvider"
+            ],
+            "aliases": {
+                "Calculator": "Fhuaquistoq\\CalculatorLaravel\\Facades\\Calculator"
+            }
+        }
+    }
+}
