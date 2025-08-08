@@ -45,18 +45,17 @@ class Calculator
 
   public static function divide(Number|float|int $a, Number|float|int $b)
   {
-    if (($b instanceof Number && $b->getValue() == 0) || $b == 0) {
+    if ($b instanceof Number) {
+      if ($b->getValue() == 0) {
+        throw new DivisionByZeroException();
+      }
+      return $a instanceof Number ? $a->divide($b) : new Number($a / $b->getValue());
+    }
+
+    if ($b == 0) {
       throw new DivisionByZeroException();
     }
 
-    if ($a instanceof Number) {
-      return $a->divide($b);
-    }
-
-    if ($b instanceof Number) {
-      return new Number($a / $b->getValue());
-    }
-
-    return new Number($a / $b);
+    return $a instanceof Number ? $a->divide($b) : new Number($a / $b);
   }
 }

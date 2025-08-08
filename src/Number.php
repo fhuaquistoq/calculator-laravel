@@ -48,12 +48,18 @@ class Number
 
   public function divide(Number|float|int $number)
   {
-    if (($number instanceof Number && $number->getValue() == 0) || $number == 0) {
-      throw new DivisionByZeroException();
-    }
     if ($number instanceof Number) {
+      if ($number->getValue() == 0) {
+        throw new DivisionByZeroException();
+      }
+
       return new Number($this->value / $number->getValue());
     }
+
+    if ($number == 0) {
+      throw new DivisionByZeroException();
+    }
+
     return new Number($this->value / $number);
   }
 }
